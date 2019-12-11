@@ -10,6 +10,10 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.marisa, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprite.destroy(effects.disintegrate, 500)
+    sprite.say("AAAAAAAAAA")
+})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     marisa.say("Woah, I can move?")
 })
@@ -78,7 +82,7 @@ let cirno = sprites.create(img`
 . 1 1 f f f f f f f f f f 1 1 . 
 . . . . . f f . . f f . . . . . 
 `, SpriteKind.Player)
-cirno.setPosition(124, 83)
+cirno.setPosition(127, 67)
 cirno.say("Where am I?")
 let yamame = sprites.create(img`
 . f f f f f f . . f f f f f f . 
@@ -119,7 +123,7 @@ f c c 5 5 5 c c c c 5 5 5 c c f
 . . . . . f f f f f f . . . . . 
 `, SpriteKind.Enemy)
 ballbo.setPosition(120, 89)
-game.onUpdateInterval(100, function () {
+game.onUpdateInterval(10, function () {
     ballbo.y += controller.dx()
     ballbo.x += controller.dy()
 })
