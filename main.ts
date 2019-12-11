@@ -118,7 +118,8 @@ f c c 5 5 5 c c c c 5 5 5 c c f
 . . . f f c c c c c c f f . . . 
 . . . . . f f f f f f . . . . . 
 `, SpriteKind.Enemy)
-game.onUpdateInterval(1, function () {
-    ballbo.x += controller.dx()
-    ballbo.y += controller.dy()
+ballbo.setPosition(120, 89)
+game.onUpdateInterval(100, function () {
+    ballbo.y += controller.dx()
+    ballbo.x += controller.dy()
 })
