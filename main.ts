@@ -8,7 +8,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     marisa.say("Woah, I can move?")
 })
 sprites.onOverlap(SpriteKind.marisa, SpriteKind.Enemy, function (sprite, otherSprite) {
-    game.over(false)
+    game.over(false, effects.melt)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprite.destroy(effects.disintegrate, 500)
@@ -123,7 +123,7 @@ f c c 5 5 5 c c c c 5 5 5 c c f
 . . . . . f f f f f f . . . . . 
 `, SpriteKind.Enemy)
 ballbo.setPosition(120, 89)
-game.onUpdateInterval(10, function () {
+game.onUpdate(function () {
     ballbo.y += controller.dx()
     ballbo.x += controller.dy()
 })
